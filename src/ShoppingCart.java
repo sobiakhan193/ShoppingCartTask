@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.*;
 
 public class ShoppingCart {
     private Inventory inventory;
@@ -38,5 +37,9 @@ public class ShoppingCart {
             totalItems += cItem.getQuantity();
         }
         return productsInCart.size();
+    }
+
+    public List<CartItem> cartItems(){
+        return Collections.unmodifiableList(this.productsInCart);
     }
 }
