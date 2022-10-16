@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ShoppingCart {
     private Inventory inventory;
@@ -13,7 +14,22 @@ public class ShoppingCart {
     }
 
     public void removeProduct(CartItem cItem){
-        this.productsInCart.remove(cItem);
+        boolean deleteCartItem = false;
+        for (CartItem cartItem : productsInCart){
+            if(Objects.equals(cartItem.getProductCode(),cItem.getProductCode())){
+                if(Objects.equals(cItem.getQuantity(),cartItem.getQuantity())){
+                    deleteCartItem = true;
+                }
+                else
+                {
+                    cartItem.reduceQtyBy(cItem.getQuantity());
+                }
+            }
+        }
+        if(deleteCartItem){
+            this.productsInCart.remove(cItem);
+        }
+
     }
 
     public int totalNumberOfItems(){
