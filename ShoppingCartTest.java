@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 public class ShoppingCartTest {
+    ShoppingCart cart = new ShoppingCart();
 
     @Test
     public void addanitem(){
@@ -10,5 +11,10 @@ public class ShoppingCartTest {
         int totalItemCount = cart.totalNumberOfItems();
 
         assertThat(totalItemCount).isEqualTo(1);
+    }
+
+    @Test
+    public void removeAnItem(){
+        //cart.add
     }
 }
